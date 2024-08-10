@@ -1,0 +1,22 @@
+/* Home.css */
+.content {
+  padding-top: 55px; /* Ajusta este valor según la altura de tu Navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+}
+
+ .container {
+  display: flex;
+  justify-content:space-evenly ; /* posiciona horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  /* gap: 16px; */
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan si es necesario */
+  max-width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
