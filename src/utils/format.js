@@ -1,5 +1,5 @@
-export const formatTotal = (precio) => {
-    return `${precio.toLocaleString('es-CL')}`;
+export const formatTotal = (price) => {
+    return `${price.toLocaleString('es-CL')}`;
   };
 
   

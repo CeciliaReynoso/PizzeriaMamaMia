@@ -1,13 +1,12 @@
-
 import { Navbar, Nav, Button, Container, Offcanvas } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { formatTotal } from '../utils/format';
 
-const NavbarComponent = () => {
+const NavbarComponent = ({ total }) => {
   const token = false; // Cambia a true para simular un usuario logueado
-  const total = 25000; // Valor fijo de la compra
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className='mb-3' style={{ position: 'fixed', top: 0, width: '100%' }}>
+    <Navbar bg="dark" variant="dark" expand="lg" style={{ position: 'fixed', top: '0', width: '100%', zIndex: 1030 }}>
       <Container fluid className='navbar-container'>
         <Navbar.Brand href="#home">Pizzería Mamma Mía!</Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -37,11 +36,8 @@ const NavbarComponent = () => {
                   </>
                 )}
               </Nav>
-              {/* <div className="d-flex align-items-center"> */}
               <div className='total-container'>
-                <Button
-                  variant="outline-info"
-                  className="mt-2 mt-lg-0"                                  >
+                <Button variant="outline-info" className="mt-2 mt-lg-0">
                   🛒 Total: ${formatTotal(total)}
                 </Button>
               </div>
@@ -51,6 +47,10 @@ const NavbarComponent = () => {
       </Container>
     </Navbar>
   );
+};
+
+NavbarComponent.propTypes = {
+  total: PropTypes.number.isRequired,
 };
 
 export default NavbarComponent;

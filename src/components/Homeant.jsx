@@ -1,20 +1,24 @@
 import HeaderComponent from "./Header";
 import CardPizzaComponent from "./CardPizza";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import PropTypes from "prop-types";
-import './Home.css'; // Asegúrate de tener los estilos CSS aplicados
 
 const HomeComponent = ({ pizzas, onAddToCart }) => {
   return (
     <>
       <div className="content">
         <HeaderComponent />
-        <div className="card-container">
+        <Container >
+        <Row >
           {pizzas.map((pizza) => (
-            <div key={pizza.id} className="card-item">
+            <Col key={pizza.id} xs={12} md={4}>
               <CardPizzaComponent pizza={pizza} onAddToCart={onAddToCart} />
-            </div>
+            </Col>
           ))}
-        </div>
+        </Row>
+      </Container>
       </div>
     </>
   );

@@ -27,7 +27,7 @@ const Register = () => {
     } else if (password !== confirmPassword) {
       setMessage('🤔The passwords do not match.');
     } else {
-      setMessage('🍕Successful registration, order your delicious pizza!.');
+      setMessage('🍕Successful registration, order your delicious pizza!');
       setPasswordError(''); // Limpia el mensaje de error del campo de contraseña
       setConfirmPasswordError(''); // Limpia el mensaje de error del campo de confirmar contraseña
     }
@@ -77,7 +77,7 @@ const Register = () => {
       <Button variant="primary" type="submit" className="btn-primary">
         Register
       </Button>
-      ¨{/* {message && <p className="mt-3">{message}</p>} Mensaje de éxito con condicional simple&& */}
+      {/* {message && <p className="mt-3">{message}</p>} Mensaje de éxito con condicional simple&& */}
       {message ? <p className="mt-3">{message}</p> : null} {/*{mensaje de éxito usando el operador ternario} */}
     </Form>
     </>

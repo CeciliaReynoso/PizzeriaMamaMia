@@ -1,36 +1,57 @@
-import React from 'react';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import './CardPizza.css';
+import PropTypes from 'prop-types';
 
-function CardPizzaComponent({ nombre, precio, ingredientes, stocki }) {
-  let formatter = new Intl.NumberFormat('es-cl', {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
-  let nuevoFormatted = `Precio: $ ${formatter.format(precio)}`;
+const CardPizzaComponent = ({ pizza, onAddToCart }) => {
+  const { name, img, price, ingredients } = pizza;
+
+  // Función para capitalizar la primera letra del nombre
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  // Función para formatear el precio en pesos chilenos
+  const formatPrice = (price) => {
+    return price.toLocaleString('es-CL', {
+      style: 'currency',
+      currency: 'CLP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
 
   return (
-    <Card className="pizza-card">
-      <Card.Img variant="top" src={stocki} className="pizza-image" />
-      <Card.Body>
-        <Card.Title className="text-center">{nombre}</Card.Title>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item className="ingredients-item">
-          <h6 className="text-center">Ingredientes:</h6>
-          <p className="text-center ingredients-list">🍕 {ingredientes.join(', ')}</p>
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <h3 className="text-center">{nuevoFormatted}</h3>
-          <div className="d-flex justify-content-between">
+    <div className='container'>
+    <div className="card">
+      <img src={img} alt={name} className="card-img-top" /> 
+      <div className="card-body">
+        <h3 className="card-title">{capitalizeFirstLetter(name)}</h3>
+        <div className='border-top border-bottom'>
+        <h6>Ingredientes:</h6>
+        <ul>
+          {ingredients.map((ingredient, index) => (
+            <li key={index}>👩‍🍳 {ingredient}</li>
+          ))}
+        </ul>
+        </div>
+        <p className="card-text p-2">Precio: {formatPrice(price)}</p>
+        <div className="d-flex justify-content-between">
             <button type="button" className="btn btn-outline-dark">👀 Ver más</button>
-            <button type="button" className="btn btn-dark">Añadir 🛒</button>
+            <button type="button" className="btn btn-dark" onClick={() => onAddToCart(pizza)}>Añadir 🛒</button>
           </div>
-        </ListGroup.Item>
-      </ListGroup>
-    </Card>
+      </div>
+    </div>
+    </div>
   );
-}
+};
+
+CardPizzaComponent.propTypes = {
+  pizza: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  onAddToCart: PropTypes.func.isRequired,
+};
 
 export default CardPizzaComponent;
