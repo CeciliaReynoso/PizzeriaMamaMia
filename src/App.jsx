@@ -4,7 +4,7 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import NavbarComponent from './components/Navbar';
 import HomeComponent from './components/Home';
-import pizzaCart from './data/pizzas'; // Pizzas disponibles
+import pizzaCart from './data/pizzas'; // Se utilizó el archivo existente en la plataforma de DL
 
 const App = () => {
   // Leer carrito de localStorage o usar un array vacío si no hay nada guardado
