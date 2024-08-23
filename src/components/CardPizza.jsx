@@ -21,7 +21,7 @@ const CardPizzaComponent = ({ pizza, onAddToCart }) => {
   return (
     <div className='container'>
     <div className="card">
-      <img src={img} alt={name} className="card-img-top" /> 
+      <img src={img} alt='{name}' className="card-img-top" /> 
       <div className="card-body">
         <h3 className="card-title">{capitalizeFirstLetter(name)}</h3>
         <div className='border-top border-bottom'>
