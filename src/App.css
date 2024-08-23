@@ -47,25 +47,23 @@ h6{
   padding-top: 55px; /* Ajusta este valor según la altura de tu Navbar */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra horizontalmente */
-  
-  
+  align-items: center; /* Centra horizontalmente */  
 }
 
 .row {
   display: flex;
   position: relative; /* Si no es necesario, evita usar position aquí */
-  z-index: 1; /* Asegura que esté por debajo del navbar */
-  -ms-grid-row-align: 1.5rem;
-  
-
+  z-index: 1; /* Asegura que esté por debajo del navbar */ 
 }
 
 .footer {
+  width: 100%;
   text-align: center;
   padding: 20px;
   background-color: #333;
   color: white;
+  margin: 0;
+  position: relative;
 }
 
 .login-container{
@@ -111,10 +109,47 @@ h6{
   color: black;
 }
 
-
 .eCart{
   display: flex;
   flex-direction: column;
+}
+
+.eDesc{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*Margenes para componentes con pocos datos como pizza o login
+/* Márgenes para pantallas pequeñas y superiores */
+.m-sm-6 {
+  margin: 10rem; /* 64px */
+}
+
+.m-sm-7 {
+  margin: 15rem; /* 80px */
+}
+
+/* Márgenes para pantallas medianas y superiores */
+@media (min-width: 768px) {
+  .m-md-6 {
+    margin: 8rem; /* 64px */
+  }
+
+  .m-md-7 {
+    margin: 12rem; /* 80px */
+  }
+}
+
+/* Márgenes para pantallas grandes y superiores */
+@media (min-width: 992px) {
+  .m-lg-6 {
+    margin: 5rem; /* 64px */
+  }
+
+  .m-lg-5 {
+    margin: 6rem; /* 80px */
+  }
 }
 
 
