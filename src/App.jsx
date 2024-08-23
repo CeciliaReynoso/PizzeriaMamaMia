@@ -1,22 +1,13 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import NavbarComponent from './components/Navbar';
-import HomeComponent from './components/Home';
-import pizzaCart from './data/pizzas'; // Se utilizó el archivo existente en la plataforma de DL
+import HomeComponent from './components/Home'; // Importa el nuevo HomeComponent
+import PizzaComponent from './components/Pizza';
 
 const App = () => {
-  // Leer carrito de localStorage o usar un array vacío si no hay nada guardado
-  const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
-
-  // Guardar carrito en localStorage cuando cambie
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+  const [cart, setCart] = useState([]);
 
   const handleAddToCart = (pizza) => {
     setCart(prevCart => {
@@ -57,12 +48,13 @@ const App = () => {
   return (
     <div>
       <NavbarComponent total={getTotal()} />
-      <HomeComponent pizzas={pizzaCart} onAddToCart={handleAddToCart} />
-      <Cart
+      {/* <HomeComponent onAddToCart={handleAddToCart} />  */}
+      {/* <Cart
         cart={cart}
         onIncreaseQuantity={handleIncreaseQuantity}
         onDecreaseQuantity={handleDecreaseQuantity}
-      />
+      /> */}
+      <PizzaComponent onAddToCart={handleAddToCart} />
       <Footer />
     </div>
   );

@@ -19,7 +19,7 @@ const Cart = ({ cart, onIncreaseQuantity, onDecreaseQuantity }) => {
   };
 
   return (
-    <Container className='eCart' style={{ maxWidth: '900px', marginTop: '2rem' }}>
+    <Container className='eCart' style={{ maxWidth: '50%', marginTop: '2rem' }}>
       <div className="text-center mb-4">
         <h2>🛒 Total Carrito: {formatPrice(getTotal())}</h2>
         <Button variant="success" className="mt-2 btn-lg" >Pagar</Button>
@@ -42,6 +42,7 @@ const Cart = ({ cart, onIncreaseQuantity, onDecreaseQuantity }) => {
             <Card.Img 
               variant="left" 
               src={pizza.img} 
+              alt={pizza.name}
               style={{ 
                 width: '120px', 
                 height: '120px', 
